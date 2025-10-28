@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* --- VFX utilities --- */
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.aurora-layer {
+  position: absolute;
+  filter: blur(60px);
+  opacity: 0.6;
+  mix-blend-mode: screen;
+  animation: auroraFloat 14s ease-in-out infinite;
+}
+
+.aurora-layer.layer-2 {
+  filter: blur(80px);
+  opacity: 0.55;
+  animation-duration: 18s;
+  animation-delay: -3s;
+}
+
+.aurora-layer.layer-3 {
+  filter: blur(90px);
+  opacity: 0.5;
+  animation-duration: 20s;
+  animation-delay: -6s;
+}
+
+@keyframes auroraFloat {
+  0% { transform: translate3d(-10%, -5%, 0) rotate(0deg) scale(1); }
+  25% { transform: translate3d(5%, 0%, 0) rotate(2deg) scale(1.05); }
+  50% { transform: translate3d(10%, 8%, 0) rotate(-1deg) scale(1.02); }
+  75% { transform: translate3d(-4%, 2%, 0) rotate(1deg) scale(1.06); }
+  100% { transform: translate3d(-10%, -5%, 0) rotate(0deg) scale(1); }
+}
+
+.aurora-gradient-1 {
+  background: radial-gradient(60% 60% at 20% 20%, rgba(0,255,209,0.35), transparent 60%),
+              radial-gradient(50% 50% at 80% 30%, rgba(0,112,255,0.35), transparent 60%),
+              radial-gradient(40% 40% at 50% 80%, rgba(168,85,247,0.35), transparent 60%);
+}
+
+.aurora-gradient-2 {
+  background: radial-gradient(60% 60% at 80% 70%, rgba(99,102,241,0.35), transparent 60%),
+              radial-gradient(50% 50% at 25% 60%, rgba(244,63,94,0.3), transparent 60%),
+              radial-gradient(40% 40% at 60% 20%, rgba(16,185,129,0.3), transparent 60%);
+}
+
+.glow-edge {
+  box-shadow: 0 0 40px rgba(56,189,248,0.25), 0 0 80px rgba(168,85,247,0.15);
+}
+
+.neon-text {
+  text-shadow: 0 0 10px rgba(56,189,248,0.6), 0 0 20px rgba(124,58,237,0.35);
+}
