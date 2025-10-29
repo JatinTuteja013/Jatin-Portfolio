@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ExternalLink, Code2, Globe, Smartphone, ShoppingCart, TrendingUp, Search, BarChart3 } from "lucide-react";
+import { ExternalLink, Code2, Globe, Smartphone, ShoppingCart, TrendingUp, BarChart3 } from "lucide-react";
 import { useRef } from "react";
 interface Project {
   id: number;
@@ -57,7 +57,7 @@ export default function Projects() {
       description: "High-performance website with 95+ Google Lighthouse score.",
       longDescription: "Built a mobile-first business website with an exceptional Google Lighthouse performance score of 95+. Implemented structured data markup, on-page SEO, and accessibility improvements to maximize ranking potential and deliver superior user experience.",
       tags: ["Next.js", "SEO", "Performance", "Accessibility", "PWA"],
-      icon: Search,
+      icon: TrendingUp,
       image: "/project-seo.jpg",
       liveUrl: "#",
       githubUrl: "#",
