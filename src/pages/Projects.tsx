@@ -29,9 +29,9 @@ export default function Projects() {
   const projects: Project[] = [
     {
       id: 1,
-      title: "E-Commerce Web Application",
-      description: "Full-stack e-commerce platform with payment integration",
-      longDescription: "Built a modern e-commerce solution using Next.js with features like cart management, payment processing, order tracking, and admin dashboard. Implemented SEO optimization and performance enhancements.",
+      title: "E-Commerce Web Platform with Secure Payment Gateway",
+      description: "Robust full-stack e-commerce solution integrating payments, inventory, and admin control.",
+      longDescription: "Developed a scalable Next.js-based e-commerce platform with secure Stripe payment integration, advanced cart and order management, and a user-friendly admin dashboard. Implemented technical SEO, lazy loading, and performance optimization to deliver a seamless shopping experience across all devices.",
       tags: ["Next.js", "TypeScript", "Stripe", "MongoDB", "Tailwind CSS", "SEO"],
       icon: ShoppingCart,
       image: "/project-ecommerce.jpg",
@@ -41,9 +41,9 @@ export default function Projects() {
     },
     {
       id: 2,
-      title: "Digital Marketing Dashboard",
-      description: "Analytics dashboard for digital marketing metrics",
-      longDescription: "Created an intuitive marketing dashboard displaying KPIs, conversion rates, traffic sources, and campaign performance. Features real-time data updates and comprehensive reporting tools for marketing teams.",
+      title: "Digital Marketing Analytics Dashboard",
+      description: "Real-time performance insights for marketing campaigns.",
+      longDescription: "Designed a visually engaging React-powered analytics dashboard that tracks KPIs, traffic sources, and conversion metrics. Features data visualization, real-time updates, and interactive reports for marketing teams to analyze performance and improve ROI.",
       tags: ["React", "Chart.js", "REST API", "CSS3", "Data Visualization"],
       icon: BarChart3,
       image: "/project-dashboard.jpg",
@@ -53,9 +53,9 @@ export default function Projects() {
     },
     {
       id: 3,
-      title: "SEO Optimized Business Website",
-      description: "Business website with advanced SEO and performance optimization",
-      longDescription: "Developed a lightning-fast business website with Google Lighthouse score of 95+. Implemented technical SEO best practices, structured data markup, and mobile-first responsive design for optimal search rankings.",
+      title: "SEO-Optimized Business Website",
+      description: "High-performance website with 95+ Google Lighthouse score.",
+      longDescription: "Built a mobile-first business website with an exceptional Google Lighthouse performance score of 95+. Implemented structured data markup, on-page SEO, and accessibility improvements to maximize ranking potential and deliver superior user experience.",
       tags: ["Next.js", "SEO", "Performance", "Accessibility", "PWA"],
       icon: Search,
       image: "/project-seo.jpg",
@@ -65,9 +65,9 @@ export default function Projects() {
     },
     {
       id: 4,
-      title: "React Mobile App",
-      description: "Cross-platform mobile application for task management",
-      longDescription: "Built a responsive mobile-first application using React with PWA capabilities. Features include offline mode, push notifications, and native-like user experience across all devices.",
+      title: "Cross-Platform Task Management App",
+      description: "Mobile-responsive task app built with React and Firebase.",
+      longDescription: "Developed a progressive web app (PWA) for task management using React and Firebase. Includes offline functionality, push notifications, and a responsive UI optimized for both desktop and mobile users.",
       tags: ["React", "PWA", "Mobile", "Responsive", "Firebase"],
       icon: Smartphone,
       image: "/project-mobile.jpg",
@@ -103,10 +103,10 @@ export default function Projects() {
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></span>
               </h2>
               <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                Showcasing my expertise in web development, digital marketing, and SEO optimization
+              Explore a curated selection of projects that showcase my expertise in <strong> full-stack development</strong>, <strong>SEO optimization</strong>, and <strong>digital marketing strategy</strong>.
               </p>
               <p className="text-lg text-gray-500 mt-4 max-w-2xl mx-auto">
-                From e-commerce platforms to marketing dashboards, each project demonstrates technical skills and strategic thinking
+              From dynamic <strong>e-commerce platforms</strong> to insightful <strong>analytics dashboards</strong>, each project reflects my focus on performance, scalability, and user engagement.
               </p>
             </motion.div>
 
@@ -256,7 +256,7 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <p className="text-gray-400 mb-4">Looking to build your next web project?</p>
+              <p className="text-gray-400 mb-4">Ready to bring your next idea to life?</p>
               <motion.a
                 href="#contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-cyan-500/50 transition-all"
