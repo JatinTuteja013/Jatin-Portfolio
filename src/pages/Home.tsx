@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Download, Mail, Linkedin, Github, Code2, TrendingUp } from "lucide-react";
+import React, { useRef } from "react";
 import { useState, useEffect, useMemo } from "react";
 
 export default function Home() {
@@ -55,6 +56,23 @@ export default function Home() {
   const headingName = "Jatin Tuteja";
   const headingPrefixChars = useMemo(() => headingPrefix.split(""), []);
   const headingNameChars = useMemo(() => headingName.split(""), []);
+
+  const [showResumeDropdown, setShowResumeDropdown] = useState(false);
+
+  const resumeDropdownRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (resumeDropdownRef.current && !resumeDropdownRef.current.contains(e.target as Node)) {
+        setShowResumeDropdown(false);
+      }
+    }
+    if (showResumeDropdown) {
+      document.addEventListener("mousedown", handleClick);
+    } else {
+      document.removeEventListener("mousedown", handleClick);
+    }
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [showResumeDropdown]);
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center bg-black overflow-x-hidden pt-20">
@@ -218,15 +236,51 @@ export default function Home() {
                     }}
                   />
                 </motion.a>
-                <motion.a
-                  href="/resume.pdf"
-                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-transparent border-2 border-cyan-400/50 text-white rounded-full font-semibold hover:border-cyan-400 hover:bg-cyan-500/10 transition-all duration-300 text-sm sm:text-base"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Download size={18} />
-                  Download CV
-                </motion.a>
+                <div className="relative" ref={resumeDropdownRef}>
+                  <motion.button
+                    type="button"
+                    className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-transparent border-2 border-cyan-400/50 text-white rounded-full font-semibold hover:border-cyan-400 hover:bg-cyan-500/10 transition-all duration-300 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setShowResumeDropdown((v) => !v)}
+                  >
+                    <Download size={18} />
+                    Download CV
+                  </motion.button>
+                  {showResumeDropdown && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      className="absolute top-full left-0 mt-2 w-60 bg-white border border-cyan-100 rounded-lg shadow-lg z-30 overflow-hidden"
+                    >
+                      <a
+                        href="/Web_Dev_Resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-5 py-3 text-cyan-900 hover:bg-cyan-50 hover:text-cyan-700 text-sm font-medium transition-colors duration-150"
+                        onClick={() => setShowResumeDropdown(false)}
+                      >
+                        <span className="flex items-center gap-2">
+                          <Download size={16} className="text-cyan-400" />
+                          <span>Web Developer Resume</span>
+                        </span>
+                      </a>
+                      <a
+                        href="/Digital_Marketer_Resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-5 py-3 text-cyan-900 hover:bg-cyan-50 hover:text-cyan-700 text-sm font-medium transition-colors duration-150"
+                        onClick={() => setShowResumeDropdown(false)}
+                      >
+                        <span className="flex items-center gap-2">
+                          <Download size={16} className="text-cyan-400" />
+                          <span>Digital Marketer Resume</span>
+                        </span>
+                      </a>
+                    </motion.div>
+                  )}
+                </div>
               </motion.div>
 
               {/* Social Links */}
@@ -235,7 +289,7 @@ export default function Home() {
                 variants={itemVariants}
               >
                 <motion.a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/jatin-tuteja-933ba1220/"
                   className="w-12 h-12 rounded-full bg-blue-500/20 backdrop-blur-md border border-blue-400/50 text-white flex items-center justify-center hover:bg-blue-500 hover:border-blue-400 transition-all duration-300"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -245,7 +299,7 @@ export default function Home() {
                   <Linkedin size={20} />
                 </motion.a>
                 <motion.a
-                  href="https://github.com"
+                  href="https://github.com/JatinTuteja013"
                   className="w-12 h-12 rounded-full bg-purple-500/20 backdrop-blur-md border border-purple-400/50 text-white flex items-center justify-center hover:bg-purple-500 hover:border-purple-400 transition-all duration-300"
                   target="_blank"
                   rel="noopener noreferrer"

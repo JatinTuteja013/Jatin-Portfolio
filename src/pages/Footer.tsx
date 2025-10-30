@@ -7,11 +7,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-    { icon: Mail, href: "mailto:jatin@example.com", label: "Email" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/jatin-tuteja-933ba1220/", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/JatinTuteja013", label: "GitHub" },
+    { icon: Instagram, href: "https://www.instagram.com/jatin_swag__/", label: "Instagram" },
+    { icon: Mail, href: "mailto:jatintuteja013@gmail.com", label: "Email" },
   ];
 
   const quickLinks = [
@@ -47,8 +46,7 @@ export default function Footer() {
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-white via-gray-400 to-transparent"></span>
             </h3>
             <p className="text-gray-400 mb-4 leading-relaxed">
-              A passionate web developer and digital marketing strategist
-              creating exceptional online experiences and driving business growth.
+            Web Developer & Digital Marketing Specialist from Surat, crafting impactful online experiences and helping brands grow through strategy-driven design and technology.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social, index) => (
@@ -127,7 +125,7 @@ export default function Footer() {
                 whileHover={{ x: 5 }}
               >
                 <Mail size={18} className="group-hover:scale-110 transition-transform" />
-                <span>jatin@example.com</span>
+                <span>jatintuteja013@gmail.com</span>
               </motion.a>
               <div className="flex items-center gap-3 text-gray-500 text-sm mt-4">
                 <motion.div
@@ -149,11 +147,11 @@ export default function Footer() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4">
             <p className="text-gray-400 text-sm">
               © {currentYear} Jatin Portfolio. All rights reserved.
             </p>
-            <motion.p
+            {/* <motion.p
               className="text-gray-400 text-sm flex items-center gap-1"
               whileHover={{ scale: 1.05 }}
             >
@@ -169,7 +167,7 @@ export default function Footer() {
                 />
               </motion.span>{" "}
               by Jatin
-            </motion.p>
+            </motion.p> */}
           </div>
         </motion.div>
       </div>

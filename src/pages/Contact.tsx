@@ -63,10 +63,10 @@ export default function Contact() {
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></span>
               </h2>
               <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                Let's discuss your next web development or digital marketing project
+              Let’s collaborate to build your next web development or digital marketing project that truly stands out.
               </p>
               <p className="text-lg text-gray-500 mt-4 max-w-2xl mx-auto">
-                Ready to grow your online presence? Contact me for a free consultation
+              Looking to boost your brand visibility or create a modern website? Reach out today for a free consultation and let’s bring your ideas to life.
               </p>
             </motion.div>
 
@@ -78,7 +78,7 @@ export default function Contact() {
                 animate={{ opacity: 1, scale: 1 }}
               >
                 <CheckCircle size={24} />
-                <p>Thank you! Your message has been sent. I'll get back to you soon.</p>
+                <p>Thank you for reaching out! I’ve received your message and will get back to you within 24 hours.</p>
               </motion.div>
             )}
 
@@ -94,14 +94,14 @@ export default function Contact() {
                 <div>
                   <h3 className="text-2xl font-semibold text-white mb-6">Contact Information</h3>
                   <p className="text-gray-400 mb-8 leading-relaxed">
-                    I'm available for freelance projects, full-time opportunities, or just to chat about web development and digital marketing.
+                  I’m open to freelance collaborations, internship or full-time roles, and creative discussions about web development and digital marketing strategies.
                   </p>
                 </div>
 
                 {/* Contact Items */}
                 <div className="space-y-6">
                   <motion.a
-                    href="mailto:jatin@example.com"
+                    href="mailto:jatintuteja013@gmail.com"
                     className="flex items-center gap-4 p-4 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-400/30 rounded-xl hover:border-cyan-400/50 hover:bg-cyan-500/20 transition-all group"
                     whileHover={{ scale: 1.02, x: 5 }}
                   >
@@ -110,12 +110,12 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-gray-400 text-sm">Email</p>
-                      <p className="text-white font-medium">jatin@example.com</p>
+                      <p className="text-white font-medium">jatintuteja013@gmail.com</p>
                     </div>
                   </motion.a>
 
                   <motion.a
-                    href="tel:+1234567890"
+                    href="tel:+91 8469428543"
                     className="flex items-center gap-4 p-4 bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-400/30 rounded-xl hover:border-purple-400/50 hover:bg-purple-500/20 transition-all group"
                     whileHover={{ scale: 1.02, x: 5 }}
                   >
@@ -124,7 +124,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-gray-400 text-sm">Phone</p>
-                      <p className="text-white font-medium">+1 (234) 567-7890</p>
+                      <p className="text-white font-medium">+91 8469428543</p>
                     </div>
                   </motion.a>
 
@@ -147,7 +147,7 @@ export default function Contact() {
                   <p className="text-gray-400 mb-4">Connect with me on:</p>
                   <div className="flex gap-4">
                     <motion.a
-                      href="https://linkedin.com"
+                      href="https://www.linkedin.com/in/jatin-tuteja-933ba1220/"
                       className="w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white flex items-center justify-center hover:bg-white hover:text-black transition-all"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       whileTap={{ scale: 0.9 }}
@@ -157,7 +157,7 @@ export default function Contact() {
                       <Linkedin size={20} />
                     </motion.a>
                     <motion.a
-                      href="https://github.com"
+                      href="https://github.com/JatinTuteja013"
                       className="w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white flex items-center justify-center hover:bg-white hover:text-black transition-all"
                       whileHover={{ scale: 1.1, rotate: -5 }}
                       whileTap={{ scale: 0.9 }}
@@ -191,7 +191,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-white/30 transition-all"
-                    placeholder="John Doe"
+                    placeholder="Ayush Yadav"
                   />
                 </div>
 
@@ -207,7 +207,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-white/30 transition-all"
-                    placeholder="john@example.com"
+                    placeholder="ayush@example.com"
                   />
                 </div>
 
