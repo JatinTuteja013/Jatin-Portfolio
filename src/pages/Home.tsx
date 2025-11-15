@@ -138,7 +138,7 @@ export default function Home() {
         }}
       />
 
-      <div className="w-full container mx-auto px-4 md:px-6 lg:px-12 py-20 relative z-10">
+      <div className="w-full container mx-auto px-4 md:px-6 lg:px-12 py-7 md:py-10 relative z-10">
         <motion.div
           className="max-w-6xl mx-auto"
           variants={containerVariants}
@@ -164,7 +164,7 @@ export default function Home() {
               >
                 <span aria-label={headingPrefix + headingName} className="inline-block align-top">
                   <motion.span
-                    className="inline-block"
+                    className="inline-block px-2"
                     initial="hidden"
                     animate="visible"
                     transition={{ staggerChildren: 0.05, delayChildren: 0.15 }}

@@ -38,7 +38,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-20 bg-gradient-to-b from-black to-gray-950 overflow-hidden">
+    <section id="contact" className="relative py-5 bg-gradient-to-b from-black to-gray-950 overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -48,7 +48,7 @@ export default function Contact() {
           }}></div>
         </div>
 
-        <div className="container mx-auto px-6 lg:px-12 py-20 relative z-10">
+        <div className="container mx-auto px-6 lg:px-12 py-5 relative z-10">
           <div className="max-w-6xl mx-auto">
             {/* Section Header */}
             <motion.div

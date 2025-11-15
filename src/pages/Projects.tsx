@@ -78,7 +78,7 @@ export default function Projects() {
   ];
 
   return (
-    <section ref={ref} id="projects" className="relative py-20 bg-gradient-to-b from-black via-gray-950 to-black overflow-hidden">
+    <section ref={ref} id="projects" className="relative py-5 bg-gradient-to-b from-black via-gray-950 to-black overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -88,7 +88,7 @@ export default function Projects() {
           }}></div>
         </div>
 
-        <motion.div style={{ opacity, y }} className="container mx-auto px-6 lg:px-12 py-20 relative z-10">
+        <motion.div style={{ opacity, y }} className="container mx-auto px-6 lg:px-12 md:py-10 py-5 relative z-10">
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
             <motion.div
