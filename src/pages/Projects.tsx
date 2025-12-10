@@ -1,8 +1,10 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ExternalLink, Code2, Globe, Smartphone, ShoppingCart, TrendingUp, BarChart3 } from "lucide-react";
+import { ExternalLink, Code2, Globe, Smartphone, ShoppingCart, TrendingUp, BarChart3, Target } from "lucide-react";
 import { useRef } from "react";
+import { usePortfolio } from "@/context/PortfolioContext";
+
 interface Project {
   id: number;
   title: string;
@@ -14,6 +16,7 @@ interface Project {
   liveUrl: string;
   githubUrl: string;
   featured: boolean;
+  type?: "frontend-developer" | "digital-marketing";
 }
 
 export default function Projects() {
@@ -25,8 +28,9 @@ export default function Projects() {
 
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
   const y = useTransform(scrollYProgress, [0, 0.3], [50, 0]);
+  const { portfolioType } = usePortfolio();
 
-  const projects: Project[] = [
+  const allProjects: Project[] = [
     {
       id: 1,
       title: "E-Commerce Web Platform with Secure Payment Gateway",
@@ -38,6 +42,7 @@ export default function Projects() {
       liveUrl: "#",
       githubUrl: "#",
       featured: true,
+      type: "frontend-developer",
     },
     {
       id: 2,
@@ -50,6 +55,7 @@ export default function Projects() {
       liveUrl: "#",
       githubUrl: "#",
       featured: true,
+      type: "digital-marketing",
     },
     {
       id: 3,
@@ -62,6 +68,7 @@ export default function Projects() {
       liveUrl: "#",
       githubUrl: "#",
       featured: true,
+      type: "frontend-developer",
     },
     {
       id: 4,
@@ -74,8 +81,66 @@ export default function Projects() {
       liveUrl: "#",
       githubUrl: "#",
       featured: false,
+      type: "frontend-developer",
+    },
+    {
+      id: 5,
+      title: "SEO Content Strategy Campaign",
+      description: "Comprehensive SEO campaign that increased organic traffic by 250%.",
+      longDescription: "Developed and executed a comprehensive SEO content strategy that increased organic traffic by 250% over 6 months. Conducted extensive keyword research, created optimized content, and implemented technical SEO improvements. Managed link-building campaigns and tracked performance using Google Analytics and Search Console.",
+      tags: ["SEO", "Content Strategy", "Keyword Research", "Google Analytics", "Link Building"],
+      icon: TrendingUp,
+      image: "/project-seo-campaign.jpg",
+      liveUrl: "#",
+      githubUrl: "#",
+      featured: true,
+      type: "digital-marketing",
+    },
+    {
+      id: 6,
+      title: "Social Media Marketing Campaign",
+      description: "Multi-platform social media campaign with 500K+ impressions.",
+      longDescription: "Created and managed a comprehensive social media marketing campaign across multiple platforms (Instagram, LinkedIn, Twitter). Developed engaging content, scheduled posts, and analyzed engagement metrics. Achieved 500K+ impressions and increased brand awareness by 180%.",
+      tags: ["Social Media", "Content Creation", "Analytics", "Brand Awareness", "Engagement"],
+      icon: Target,
+      image: "/project-social.jpg",
+      liveUrl: "#",
+      githubUrl: "#",
+      featured: true,
+      type: "digital-marketing",
+    },
+    {
+      id: 7,
+      title: "Blog Content Optimization Project",
+      description: "Optimized 50+ blog posts resulting in 300% increase in organic traffic.",
+      longDescription: "Conducted comprehensive content audit and optimization for 50+ blog posts. Improved on-page SEO, enhanced readability, and optimized for target keywords. Resulted in 300% increase in organic traffic and improved search rankings for target keywords.",
+      tags: ["Content Marketing", "SEO", "Content Optimization", "Keyword Research", "Analytics"],
+      icon: Code2,
+      image: "/project-blog.jpg",
+      liveUrl: "#",
+      githubUrl: "#",
+      featured: false,
+      type: "digital-marketing",
+    },
+    {
+      id: 8,
+      title: "PPC Campaign Management",
+      description: "Managed Google Ads campaigns with 400% ROI improvement.",
+      longDescription: "Managed and optimized Google Ads campaigns for multiple clients, focusing on keyword research, ad copy optimization, and landing page improvements. Achieved 400% ROI improvement and reduced cost-per-acquisition by 60% through data-driven optimization strategies.",
+      tags: ["PPC", "Google Ads", "Campaign Management", "ROI Optimization", "Analytics"],
+      icon: Target,
+      image: "/project-ppc.jpg",
+      liveUrl: "#",
+      githubUrl: "#",
+      featured: false,
+      type: "digital-marketing",
     },
   ];
+
+  // Filter projects based on portfolio type
+  const projects = portfolioType
+    ? allProjects.filter((project) => project.type === portfolioType)
+    : allProjects;
 
   return (
     <section ref={ref} id="projects" className="relative py-5 bg-gradient-to-b from-black via-gray-950 to-black overflow-hidden">
@@ -99,14 +164,42 @@ export default function Projects() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-4xl lg:text-6xl font-bold text-white mb-4 relative">
-                Featured Web Development Projects
+                {portfolioType === "frontend-developer"
+                  ? "Featured Web Development Projects"
+                  : portfolioType === "digital-marketing"
+                  ? "Featured Digital Marketing Projects"
+                  : "Featured Projects"}
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></span>
               </h2>
               <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Explore a curated selection of projects that showcase my expertise in <strong> full-stack development</strong>, <strong>SEO optimization</strong>, and <strong>digital marketing strategy</strong>.
+                {portfolioType === "frontend-developer" ? (
+                  <>
+                    Explore a curated selection of projects that showcase my expertise in <strong>full-stack development</strong>, <strong>modern web technologies</strong>, and <strong>user experience design</strong>.
+                  </>
+                ) : portfolioType === "digital-marketing" ? (
+                  <>
+                    Explore a curated selection of projects that showcase my expertise in <strong>SEO optimization</strong>, <strong>content marketing</strong>, and <strong>digital marketing strategy</strong>.
+                  </>
+                ) : (
+                  <>
+                    Explore a curated selection of projects that showcase my expertise in <strong>full-stack development</strong>, <strong>SEO optimization</strong>, and <strong>digital marketing strategy</strong>.
+                  </>
+                )}
               </p>
               <p className="text-lg text-gray-500 mt-4 max-w-2xl mx-auto">
-              From dynamic <strong>e-commerce platforms</strong> to insightful <strong>analytics dashboards</strong>, each project reflects my focus on performance, scalability, and user engagement.
+                {portfolioType === "frontend-developer" ? (
+                  <>
+                    From dynamic <strong>e-commerce platforms</strong> to responsive <strong>web applications</strong>, each project reflects my focus on performance, scalability, and user engagement.
+                  </>
+                ) : portfolioType === "digital-marketing" ? (
+                  <>
+                    From <strong>SEO campaigns</strong> to <strong>social media strategies</strong>, each project demonstrates measurable results and data-driven approaches to digital growth.
+                  </>
+                ) : (
+                  <>
+                    From dynamic <strong>e-commerce platforms</strong> to insightful <strong>analytics dashboards</strong>, each project reflects my focus on performance, scalability, and user engagement.
+                  </>
+                )}
               </p>
             </motion.div>
 

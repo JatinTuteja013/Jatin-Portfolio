@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, RefreshCw } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePortfolio } from "@/context/PortfolioContext";
 
 export default function Navbar() {
+  const { portfolioType, setPortfolioType } = usePortfolio();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -98,6 +100,18 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
+            <li>
+              <motion.button
+                onClick={() => setPortfolioType(null)}
+                className="text-gray-300 font-medium hover:text-white transition-colors relative group py-2 px-4 rounded-lg hover:bg-white/10 flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                title="Switch Portfolio"
+              >
+                <RefreshCw size={16} />
+                <span>Switch Portfolio</span>
+              </motion.button>
+            </li>
           </ul>
 
           {/* Mobile Menu Button */}
@@ -177,6 +191,27 @@ export default function Navbar() {
                       </motion.a>
                     </motion.li>
                   ))}
+                  <motion.li
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: navLinks.length * 0.1, duration: 0.3 }}
+                  >
+                    <motion.button
+                      onClick={() => {
+                        setPortfolioType(null);
+                        setIsMenuOpen(false);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      className="w-full block text-gray-300 font-medium hover:text-white transition-colors py-3 px-4 rounded-lg hover:bg-white/10 relative group"
+                      whileHover={{ x: 5 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <div className="flex items-center gap-3">
+                        <RefreshCw size={16} />
+                        <span>Switch Portfolio</span>
+                      </div>
+                    </motion.button>
+                  </motion.li>
                 </ul>
               </motion.div>
             </>

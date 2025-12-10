@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import { Download, Mail, Linkedin, Github, Code2, TrendingUp } from "lucide-react";
 import React, { useRef } from "react";
 import { useState, useEffect, useMemo } from "react";
+import { usePortfolio } from "@/context/PortfolioContext";
 
 export default function Home() {
+  const { portfolioType } = usePortfolio();
   const [stars, setStars] = useState<Array<{
     left: number;
     top: number;
@@ -154,8 +156,22 @@ export default function Home() {
                 variants={itemVariants}
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 via-blue-500/30 to-purple-500/30 opacity-0 hover:opacity-100 transition-opacity"></span>
-                <Code2 size={16} className="relative z-10" />
-                <span className="relative z-10">Full-Stack Web Developer & Digital Marketing Specialist</span>
+                {portfolioType === "frontend-developer" ? (
+                  <>
+                    <Code2 size={16} className="relative z-10" />
+                    <span className="relative z-10">Frontend Developer & Web Specialist</span>
+                  </>
+                ) : portfolioType === "digital-marketing" ? (
+                  <>
+                    <TrendingUp size={16} className="relative z-10" />
+                    <span className="relative z-10">Digital Marketing & SEO Specialist</span>
+                  </>
+                ) : (
+                  <>
+                    <Code2 size={16} className="relative z-10" />
+                    <span className="relative z-10">Full-Stack Web Developer & Digital Marketing Specialist</span>
+                  </>
+                )}
               </motion.div>
 
               <motion.h1
@@ -199,14 +215,38 @@ export default function Home() {
                 className="text-lg sm:text-xl lg:text-2xl text-gray-400 leading-relaxed px-4 md:px-0"
                 variants={itemVariants}
               >
-                I design and develop high-performing, user-friendly websites that blend creative design with modern technology — helping businesses grow through data-driven digital marketing strategies.
+                {portfolioType === "frontend-developer" ? (
+                  <>
+                    I design and develop high-performing, user-friendly web applications that blend creative design with modern technology — creating seamless digital experiences that users love.
+                  </>
+                ) : portfolioType === "digital-marketing" ? (
+                  <>
+                    I help brands grow their online presence through data-driven digital marketing strategies — increasing visibility, engagement, and conversions through SEO, content marketing, and analytics.
+                  </>
+                ) : (
+                  <>
+                    I design and develop high-performing, user-friendly websites that blend creative design with modern technology — helping businesses grow through data-driven digital marketing strategies.
+                  </>
+                )}
               </motion.p>
 
               <motion.p
                 className="text-base sm:text-lg text-gray-500 px-4 md:px-0"
                 variants={itemVariants}
               >
-                Full-Stack Web Developer • Digital Marketing Strategist • SEO & Content Optimization Expert
+                {portfolioType === "frontend-developer" ? (
+                  <>
+                    Frontend Developer • React & Next.js Specialist • UI/UX Designer • Performance Optimization Expert
+                  </>
+                ) : portfolioType === "digital-marketing" ? (
+                  <>
+                    Digital Marketing Strategist • SEO Expert • Content Marketing Specialist • Analytics & Growth Hacker
+                  </>
+                ) : (
+                  <>
+                    Full-Stack Web Developer • Digital Marketing Strategist • SEO & Content Optimization Expert
+                  </>
+                )}
               </motion.p>
 
               {/* CTA Buttons */}
@@ -358,14 +398,26 @@ export default function Home() {
                   >
                     <div className="flex items-center gap-3">
                       <div className="p-2 sm:p-3 bg-gradient-to-br from-blue-500/30 to-cyan-500/30 rounded-lg flex-shrink-0">
-                        <Mail className="text-blue-400" size={20} />
+                        {portfolioType === "digital-marketing" ? (
+                          <TrendingUp className="text-purple-400" size={20} />
+                        ) : (
+                          <Mail className="text-blue-400" size={20} />
+                        )}
                       </div>
                       <div>
                         <h3 className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                          Digital Marketing Expert
+                          {portfolioType === "frontend-developer"
+                            ? "Modern Web Technologies"
+                            : portfolioType === "digital-marketing"
+                            ? "Digital Marketing Expert"
+                            : "Digital Marketing Expert"}
                         </h3>
                         <p className="text-gray-400 text-xs sm:text-sm">
-                          SEO, SEM, Social Media & Content Marketing
+                          {portfolioType === "frontend-developer"
+                            ? "React, Next.js, TypeScript & Modern Frameworks"
+                            : portfolioType === "digital-marketing"
+                            ? "SEO, Content Marketing, Analytics & Growth"
+                            : "SEO, SEM, Social Media & Content Marketing"}
                         </p>
                       </div>
                     </div>
